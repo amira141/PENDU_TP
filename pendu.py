@@ -5,61 +5,62 @@ import os
 """***Cette version du pendu est simplifiée.***"""
 """***Le score commence à 0 et ne prend pas en charge de profil utilisateur***"""
 
-#Modules à importer spécifiques au jeu
-from random import choice #Permet de choisir un mot au hasard STR dans une LISTE 
+"""module spécifique au jeu"""
+from random import choice 
 
-#DEBUT DE PARTIE : DECLARER LES VARIABLES 
+#LES VARIABLES 
 
-"""score : le score de l'utilisateur 
+"""
 liste_pendu_8 : liste des mots de 8 lettres dans laquelle l'ordinateur va en choisir un a faire deviner.
+
+tours : il s'agit du nombre de chances autorisées 
+
 mot_pendu : mot choisi dans la liste par l'ordinateur pour le faire deviner à l'utilisateur
-lettres_etoile : il s'agit des lettres du mots à deviner transformées en étoiles 
-deviner_lettre : il s'agit de la lettre choisie par l'utilisateur """
+
+lettres_etoile : il s'agit des lettres du mots à deviner transformées en étoiles
+
+L : il s'agit d'une variable représentant un espace 
+
+lettres : il s'agit des lettres du mot choisi par l'ordinateur 
+
+ """
 
 
-score = 0
-score = int(score)
+liste_pendu_8 = ["pas", "bonbon", "mama"]
+tours = 8 
 
-continuer_partie = True 
+#AFFICHAGE D'UN MOT PAR L'ORDINATEUR 
 
-print(" Bienvenue sur le jeu du pendu :) ")
+mot_pendu = choice(liste_pendu_8)
+print(mot_pendu) 
 
-###LE JEU 
+print("Voici le mot à deviner:")
 
-#-Choix du mot par l'ordinateur 
-
-while continuer_partie: 
-
-    liste_pendu_8 = ["poulet", "bonbon", "haricot", "patate"] 
-    mot_pendu = choice(liste_pendu_8)
-
-    
-    print("Voici le mot à deviner:")
-    
-    for lettres in mot_pendu :
+for lettres in mot_pendu :
         lettres_etoile = str.maketrans(lettres,"*")
         print(lettres.translate(lettres_etoile))
 
 
-#-L'utilisateur devine
+#MOT MODIFIE PAR LES ETOILES
+L = ""
 
-    i = 1 
-    while i<9 :
-        deviner_lettre = input("Veuillez saisir une lettre")
-        i += 1
+lettre_u = input("Veuillez saisir une lettre ")
 
-        if len(deviner_lettre) >= 2:
-            print("Il n'est pas demandé d'écrire un mot.")
-            i = 9-i
+for lettres in mot_pendu :
+    if lettres in lettre_u:
+        L = L + lettres
+    else:
+        L= L + "*"
+ 
+print(L) 
 
-        
-
-
-      
-
+#PARTIE DE PENDUE
 
 
-#FIN DE LA PARTIE 
+
+
+
+
 
 
 os.system("pause")
