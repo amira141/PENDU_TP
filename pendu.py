@@ -19,7 +19,7 @@ mot_pendu : mot choisi dans la liste par l'ordinateur pour le faire deviner à l
 
 lettres_etoile : il s'agit des lettres du mots à deviner transformées en étoiles
 
-L : il s'agit d'une variable représentant un espace 
+L : il s'agit d'une variable représentant le mot modifié par les étoiles 
 
 lettres : il s'agit des lettres du mot choisi par l'ordinateur 
 
