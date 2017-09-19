@@ -14,7 +14,7 @@ from random import choice #Permet de choisir un mot au hasard STR dans une LISTE
 liste_pendu_8 : liste des mots de 8 lettres dans laquelle l'ordinateur va en choisir un a faire deviner.
 mot_pendu : mot choisi dans la liste par l'ordinateur pour le faire deviner à l'utilisateur
 lettres_etoile : il s'agit des lettres du mots à deviner transformées en étoiles 
-deviner_lettre : """
+deviner_lettre : il s'agit de la lettre choisie par l'utilisateur """
 
 
 score = 0
@@ -33,7 +33,6 @@ while continuer_partie:
     liste_pendu_8 = ["poulet", "bonbon", "haricot", "patate"] 
     mot_pendu = choice(liste_pendu_8)
 
-    print(mot_pendu) #Essais 
     
     print("Voici le mot à deviner:")
     
