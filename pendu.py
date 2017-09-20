@@ -2,19 +2,19 @@ from encodings import utf_8
 import os
 
 
-"""***JEU DU PENDU SIMPLIFIE***"""
+"""***JEU DU PENDU SIMPLE***"""
 """***Cette version du pendu est simplifiée.***"""
-"""***Il n'y a pas de score et pas de profil utilisateur***"""
+"""***Le score commence à 0 et ne prend pas en charge de profil utilisateur***"""
 
 """module spécifique au jeu """
 from random import choice
-
 
 #DECLARATION DES VARIABLES
 
 
 liste_pendu = ["poulet", "bonbon", "maman"]
 reservoir = []
+continue_partie = True
 
 
 #AFFICHAGE DU MOT PAR LORDINATEUR 
@@ -36,16 +36,24 @@ i = 0
 i = int(i)
 
 while i<8 :
-    lettre_u = input("Devinez une lettre du mot.")
     
-    reservoir.append(lettre_u)
-    print("Les lettres que vous avez déjà tapé sont:",reservoir)
+    while continue_partie : 
+        lettre_u = input("Devinez une lettre du mot.")
     
-    for lettre_r in reservoir :
-        if lettre_r == lettres in mot_pendu :
-            print("Bravo, vous avez gagné!")
-    i = i + 1 
-    print("Il vous reste",(8- i), "essais")
+        reservoir.append(lettre_u)
+        print("Les lettres que vous avez déjà tapé sont:",reservoir)
+
+        i = i + 1 
+        print("Il vous reste",(8- i), "essais")
+
+        if i==8 :
+            continue_partie = False
+    
+        for lettre_r in reservoir :
+            if lettre_r == lettres in mot_pendu :
+                print("Bravo, vous avez gagné!")
+                continue_partie = False
+            
     
 else:
     print("Désolé, vous avez perdu! Bye!") 
@@ -55,3 +63,4 @@ else:
 
 
 os.system("pause")
+
